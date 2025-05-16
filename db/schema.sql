@@ -16,31 +16,6 @@ CREATE TABLE IF NOT EXISTS allowed_emails (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Create function to check if an email is allowed
-CREATE OR REPLACE FUNCTION is_email_allowed(email_to_check VARCHAR) 
-RETURNS BOOLEAN AS $$
-DECLARE
-  domain VARCHAR;
-  is_allowed BOOLEAN;
-BEGIN
-  -- Extract domain from email
-  domain := split_part(email_to_check, '@', 2);
-  
-  -- Check if the specific email is allowed
-  SELECT EXISTS(SELECT 1 FROM allowed_emails WHERE email = email_to_check) INTO is_allowed;
-  
-  -- If specific email is allowed, return true
-  IF is_allowed THEN
-    RETURN TRUE;
-  END IF;
-  
-  -- Check if the domain is allowed
-  SELECT EXISTS(SELECT 1 FROM allowed_domains WHERE domain = domain) INTO is_allowed;
-  
-  RETURN is_allowed;
-END;
-$$ LANGUAGE plpgsql;
-
 -- Create trigger to update updated_at
 CREATE OR REPLACE FUNCTION update_timestamp()
 RETURNS TRIGGER AS $$

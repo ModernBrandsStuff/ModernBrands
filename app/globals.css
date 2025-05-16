@@ -4,36 +4,36 @@
 
 :root {
   /* Dark mode as default */
-  --primary: #008b8b; /* Teal */
-  --primary-dark: #006666;
-  --primary-light: #20b2aa;
-  --secondary: #f08080; /* Coral */
-  --secondary-dark: #e9967a;
-  --accent: #f5f5dc; /* Cream */
-  --background: #121212;
-  --foreground: #f9fafb;
-  --card: #1e1e1e;
-  --card-foreground: #f9fafb;
-  --border: #2e2e2e;
-  --input: #2e2e2e;
-  --ring: #008b8b;
+  --primary: 180 100% 27%; /* Teal */
+  --primary-dark: 180 100% 20%;
+  --primary-light: 177 53% 41%;
+  --secondary: 0 100% 72%; /* Coral */
+  --secondary-dark: 11 78% 70%;
+  --accent: 60 100% 92%; /* Cream */
+  --background: 0 0% 7%;
+  --foreground: 210 40% 98%;
+  --card: 0 0% 12%;
+  --card-foreground: 210 40% 98%;
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
+  --ring: 180 100% 27%;
   --radius: 0.5rem;
 }
 
 .light {
-  --primary: #008b8b;
-  --primary-dark: #006666;
-  --primary-light: #20b2aa;
-  --secondary: #f08080;
-  --secondary-dark: #e9967a;
-  --accent: #f5f5dc;
-  --background: #f9fafb;
-  --foreground: #111827;
-  --card: #ffffff;
-  --card-foreground: #111827;
-  --border: #e5e7eb;
-  --input: #e5e7eb;
-  --ring: #008b8b;
+  --primary: 180 100% 27%;
+  --primary-dark: 180 100% 20%;
+  --primary-light: 177 53% 41%;
+  --secondary: 0 100% 72%;
+  --secondary-dark: 11 78% 70%;
+  --accent: 60 100% 92%;
+  --background: 210 40% 98%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 180 100% 27%;
 }
 
 @layer base {
@@ -46,71 +46,59 @@
   }
 }
 
-/* Modern UI Elements */
-.glass-card {
-  @apply bg-card bg-opacity-70 backdrop-blur-lg border border-border border-opacity-20 shadow-xl;
-}
+@layer components {
+  .glass-card {
+    @apply bg-card bg-opacity-70 backdrop-blur-lg border border-border border-opacity-20 shadow-xl;
+  }
 
-.gradient-text {
-  background: linear-gradient(to right, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
 
-.gradient-bg {
-  background: linear-gradient(to right, var(--primary), var(--secondary));
-  color: white;
-}
+  .gradient-bg {
+    @apply bg-gradient-to-r from-primary to-secondary text-white;
+  }
 
-.hover-lift {
-  @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg;
-}
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
 
-.button-primary {
-  @apply px-6 py-3 text-white rounded-md shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-opacity-50;
-  background: linear-gradient(to right, var(--primary), var(--primary-dark));
-  color: white;
-}
+  .button-primary {
+    @apply px-6 py-3 text-white rounded-md shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-opacity-50 bg-primary hover:bg-primary-dark;
+  }
 
-.button-secondary {
-  @apply px-6 py-3 rounded-md shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-opacity-50;
-  color: var(--primary);
-  border: 1px solid var(--primary);
-}
+  .button-secondary {
+    @apply px-6 py-3 rounded-md shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-opacity-50 text-primary border border-primary;
+  }
 
-.input-modern {
-  @apply w-full px-4 py-3 rounded-md border shadow-sm outline-none transition-all duration-200;
-  border-color: var(--input);
-  background-color: var(--background);
-  color: var(--foreground);
-}
-.input-modern:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(0, 139, 139, 0.2);
-}
+  .input-modern {
+    @apply w-full px-4 py-3 rounded-md border shadow-sm outline-none transition-all duration-200 border-input bg-background text-foreground focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20;
+  }
 
-.card-modern {
-  @apply rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300;
-  background-color: var(--card);
-  border: 1px solid var(--border);
-}
+  .card-modern {
+    @apply rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 bg-card border border-border;
+  }
 
-.nav-link {
-  @apply transition-colors duration-200;
-  color: var(--foreground);
-  opacity: 0.7;
-}
-.nav-link:hover {
-  color: var(--primary);
-  opacity: 1;
-}
+  .nav-link {
+    @apply transition-colors duration-200 text-foreground opacity-70 hover:text-primary hover:opacity-100;
+  }
 
-.nav-link-active {
-  color: var(--primary);
-  font-weight: 500;
-  opacity: 1;
+  .nav-link-active {
+    @apply text-primary font-medium opacity-100;
+  }
+
+  /* Dark mode specific styles */
+  .dark-card {
+    @apply bg-card border border-border shadow-md;
+  }
+
+  .dark-input {
+    @apply bg-input border-border text-foreground;
+  }
+
+  .dark-button {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
 }
 
 /* Animations */
@@ -155,17 +143,4 @@
   background-color: black;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-}
-
-/* Dark mode specific styles */
-.dark-card {
-  @apply bg-card border border-border shadow-md;
-}
-
-.dark-input {
-  @apply bg-input border-border text-foreground;
-}
-
-.dark-button {
-  @apply bg-primary text-white hover:bg-primary-dark;
 }

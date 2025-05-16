@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import {
@@ -19,7 +19,6 @@ import {
   MessageSquare,
   LogOut,
 } from "lucide-react"
-import { Suspense } from "react"
 
 export default function DashboardLayout({
   children,
@@ -70,7 +69,7 @@ export default function DashboardLayout({
                 Dashboard
               </Link>
               <Link
-                href="/dashboard"
+                href="/dashboard/employees"
                 className="flex items-center px-3 py-2 text-foreground rounded-md hover:bg-primary hover:bg-opacity-10 group"
               >
                 <Users className="h-5 w-5 mr-3 text-foreground opacity-60 group-hover:text-primary group-hover:opacity-100" />
@@ -84,7 +83,7 @@ export default function DashboardLayout({
                 Onboarding
               </Link>
               <Link
-                href="/dashboard"
+                href="/dashboard/documents"
                 className="flex items-center px-3 py-2 text-foreground rounded-md hover:bg-primary hover:bg-opacity-10 group"
               >
                 <FileText className="h-5 w-5 mr-3 text-foreground opacity-60 group-hover:text-primary group-hover:opacity-100" />
@@ -116,7 +115,7 @@ export default function DashboardLayout({
                 Reports
               </Link>
               <Link
-                href="/dashboard"
+                href="/dashboard/settings"
                 className="flex items-center px-3 py-2 text-foreground rounded-md hover:bg-primary hover:bg-opacity-10 group"
               >
                 <Settings className="h-5 w-5 mr-3 text-foreground opacity-60 group-hover:text-primary group-hover:opacity-100" />
@@ -192,7 +191,7 @@ export default function DashboardLayout({
 
         {/* Page content */}
         <main className="p-6">
-          <Suspense fallback={"Loading..."}>{children}</Suspense>
+          <Suspense>{children}</Suspense>
         </main>
       </div>
     </div>

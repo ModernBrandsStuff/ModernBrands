@@ -2,9 +2,9 @@ import Link from "next/link"
 import Image from "next/image"
 
 export default function SignupPage({
-  searchParams,
+  searchParams = {},
 }: {
-  searchParams: { error?: string }
+  searchParams?: { error?: string }
 }) {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4">

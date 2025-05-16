@@ -15,8 +15,9 @@ export default function DashboardError({
 
   return (
     <div className="container mx-auto py-10">
-      <h2 className="text-xl font-bold mb-4">Something went wrong!</h2>
-      <button onClick={reset} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+      <h2 className="text-xl font-bold mb-4 text-foreground">Something went wrong!</h2>
+      <p className="text-foreground opacity-60 mb-6">We apologize for the inconvenience.</p>
+      <button onClick={reset} className="button-primary">
         Try again
       </button>
     </div>

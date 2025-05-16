@@ -2,9 +2,9 @@ import Link from "next/link"
 import Image from "next/image"
 
 export default function LoginPage({
-  searchParams,
+  searchParams = {},
 }: {
-  searchParams: { message?: string; error?: string; redirect?: string }
+  searchParams?: { message?: string; error?: string; redirect?: string }
 }) {
   const redirectTo = searchParams.redirect || "/dashboard"
 
