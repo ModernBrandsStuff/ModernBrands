@@ -1,12 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
-import { CheckCircle, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-80 backdrop-blur-md border-b border-gray-200">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-card bg-opacity-80 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
@@ -33,7 +33,7 @@ export default function HomePage() {
             </nav>
 
             {/* Mobile Menu Button */}
-            <button className="md:hidden text-gray-600 hover:text-primary">
+            <button className="md:hidden text-foreground hover:text-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -56,27 +56,17 @@ export default function HomePage() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 Modern Employee <span className="gradient-text">Onboarding</span> Platform
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-foreground opacity-80 mb-8 leading-relaxed">
                 Streamline your employee lifecycle management with our comprehensive platform. Automate workflows,
                 ensure compliance, and create exceptional employee experiences.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/signup" className="button-primary text-center">
-                  Get Started Free
+                  Get Started
                 </Link>
                 <Link href="/dashboard" className="button-secondary text-center flex items-center justify-center gap-2">
                   Request Demo <ArrowRight size={18} />
                 </Link>
-              </div>
-              <div className="mt-8 flex items-center text-sm text-gray-500">
-                <CheckCircle size={16} className="text-secondary mr-2" />
-                <span>No credit card required</span>
-                <span className="mx-3">•</span>
-                <CheckCircle size={16} className="text-secondary mr-2" />
-                <span>14-day free trial</span>
-                <span className="mx-3">•</span>
-                <CheckCircle size={16} className="text-secondary mr-2" />
-                <span>Cancel anytime</span>
               </div>
             </div>
             <div className="lg:w-1/2 relative">
@@ -89,14 +79,25 @@ export default function HomePage() {
                   className="w-full h-auto rounded-lg"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4 animate-fade-in">
+              <div className="absolute -bottom-6 -left-6 bg-card rounded-lg shadow-lg p-4 animate-fade-in">
                 <div className="flex items-center gap-3">
-                  <div className="bg-green-100 rounded-full p-2">
-                    <CheckCircle size={20} className="text-green-600" />
+                  <div className="bg-primary bg-opacity-20 rounded-full p-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-primary"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
                   </div>
                   <div>
-                    <p className="font-medium">New employee onboarded</p>
-                    <p className="text-sm text-gray-500">Just now</p>
+                    <p className="font-medium text-foreground">New employee onboarded</p>
+                    <p className="text-sm text-foreground opacity-60">Just now</p>
                   </div>
                 </div>
               </div>
@@ -115,11 +116,11 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Everything you need to manage your workforce</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-foreground opacity-80 max-w-3xl mx-auto">
               Our platform streamlines the entire employee lifecycle from onboarding to offboarding.
             </p>
           </div>
@@ -146,7 +147,7 @@ export default function HomePage() {
                 description: "Automate repetitive tasks and workflows to save time and reduce administrative burden.",
                 icon: "⚙️",
                 color: "bg-accent bg-opacity-20",
-                textColor: "text-gray-700",
+                textColor: "text-foreground",
               },
               {
                 title: "Compliance Management",
@@ -168,7 +169,7 @@ export default function HomePage() {
                 description: "Gain insights into your workforce with powerful analytics and customizable reports.",
                 icon: "📊",
                 color: "bg-accent bg-opacity-20",
-                textColor: "text-gray-700",
+                textColor: "text-foreground",
               },
             ].map((feature, index) => (
               <div key={index} className="card-modern staggered-fade-in">
@@ -176,7 +177,7 @@ export default function HomePage() {
                   <span className="text-3xl">{feature.icon}</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <p className="text-foreground opacity-80">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -189,14 +190,14 @@ export default function HomePage() {
           <div className="rounded-2xl p-12 text-white text-center gradient-bg">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to transform your employee experience?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              Join thousands of companies using Modern to streamline their HR processes.
+              Join leading companies using Modern to streamline their HR processes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/signup"
                 className="bg-white text-primary px-8 py-3 rounded-md font-medium hover:bg-opacity-90 transition-all"
               >
-                Get Started Free
+                Get Started
               </Link>
               <Link
                 href="/dashboard"
@@ -210,33 +211,33 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-50 border-t border-gray-200 pt-12 pb-8">
+      <footer className="bg-card border-t border-border pt-12 pb-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-1">
               <Link href="/" className="flex items-center space-x-2">
                 <Image src="/images/modern-logo.png" alt="Modern" width={150} height={50} className="h-8 w-auto" />
               </Link>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-foreground opacity-80">
                 Streamline your employee lifecycle management with our comprehensive platform.
               </p>
             </div>
 
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Product</h3>
+              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">Product</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-foreground opacity-70 hover:text-primary hover:opacity-100">
                     Features
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
-                    Pricing
+                  <Link href="/dashboard" className="text-foreground opacity-70 hover:text-primary hover:opacity-100">
+                    Solutions
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-foreground opacity-70 hover:text-primary hover:opacity-100">
                     Integrations
                   </Link>
                 </li>
@@ -244,36 +245,36 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Company</h3>
+              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">Company</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-foreground opacity-70 hover:text-primary hover:opacity-100">
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
-                    Careers
+                  <Link href="/dashboard" className="text-foreground opacity-70 hover:text-primary hover:opacity-100">
+                    Contact
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
-                    Contact
+                  <Link href="/dashboard" className="text-foreground opacity-70 hover:text-primary hover:opacity-100">
+                    Careers
                   </Link>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Legal</h3>
+              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">Legal</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-foreground opacity-70 hover:text-primary hover:opacity-100">
                     Privacy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-foreground opacity-70 hover:text-primary hover:opacity-100">
                     Terms
                   </Link>
                 </li>
@@ -281,8 +282,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <p className="text-center text-gray-500 text-sm">
+          <div className="mt-12 pt-8 border-t border-border">
+            <p className="text-center text-foreground opacity-60 text-sm">
               &copy; {new Date().getFullYear()} Modern. All rights reserved.
             </p>
           </div>

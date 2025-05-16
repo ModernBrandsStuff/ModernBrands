@@ -9,7 +9,7 @@ export default function LoginPage({
   const redirectTo = searchParams.redirect || "/dashboard"
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
         <div className="card-modern">
           <div className="text-center mb-6">
@@ -22,20 +22,24 @@ export default function LoginPage({
                 className="h-12 w-auto mx-auto"
               />
             </Link>
-            <p className="mt-4 text-gray-600">Sign in to your account</p>
+            <p className="mt-4 text-foreground opacity-80">Sign in to your account</p>
           </div>
 
           {searchParams.message && (
-            <div className="mb-4 rounded-md bg-green-50 p-4 text-sm text-green-700">{searchParams.message}</div>
+            <div className="mb-4 rounded-md bg-green-900 bg-opacity-20 p-4 text-sm text-green-400">
+              {searchParams.message}
+            </div>
           )}
 
           {searchParams.error && (
-            <div className="mb-4 rounded-md bg-red-50 p-4 text-sm text-red-700">{searchParams.error}</div>
+            <div className="mb-4 rounded-md bg-red-900 bg-opacity-20 p-4 text-sm text-red-400">
+              {searchParams.error}
+            </div>
           )}
 
           <form action="/api/auth/login" method="POST" className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block text-sm font-medium text-foreground">
                 Email
               </label>
               <input
@@ -50,7 +54,7 @@ export default function LoginPage({
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="password" className="block text-sm font-medium text-foreground">
                   Password
                 </label>
                 <Link href="/dashboard" className="text-sm text-primary hover:underline">
@@ -71,14 +75,14 @@ export default function LoginPage({
             <input type="hidden" name="redirectTo" value={redirectTo} />
 
             <div>
-              <Link href="/dashboard" className="button-primary w-full block text-center">
+              <button type="submit" className="button-primary w-full">
                 Sign in
-              </Link>
+              </button>
             </div>
           </form>
 
           <div className="mt-6 text-center text-sm">
-            <p>
+            <p className="text-foreground opacity-80">
               Don't have an account?{" "}
               <Link href="/signup" className="text-primary hover:underline">
                 Sign up

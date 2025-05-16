@@ -18,6 +18,18 @@ export async function POST(request: Request) {
     const cookieStore = cookies()
     const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
 
+    // Check if the email is allowed
+    const { data: isAllowed, error: checkError } = await supabase.rpc("is_email_allowed", { email_to_check: email })
+
+    if (checkError) {
+      console.error("Error checking email:", checkError.message)
+      return NextResponse.json({ error: "Error checking email permissions" }, { status: 500 })
+    }
+
+    if (!isAllowed) {
+      return NextResponse.json({ error: "This email domain is not authorized to register" }, { status: 403 })
+    }
+
     // Always use modernonboard.com as the site URL for email redirects
     const siteUrl = "https://modernonboard.com"
 

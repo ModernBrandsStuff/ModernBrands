@@ -7,7 +7,7 @@ export default function SignupPage({
   searchParams: { error?: string }
 }) {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
         <div className="card-modern">
           <div className="text-center mb-6">
@@ -20,23 +20,25 @@ export default function SignupPage({
                 className="h-12 w-auto mx-auto"
               />
             </Link>
-            <p className="mt-4 text-gray-600">Create your account</p>
+            <p className="mt-4 text-foreground opacity-80">Create your account</p>
           </div>
 
           {searchParams.error && (
-            <div className="mb-4 rounded-md bg-red-50 p-4 text-sm text-red-700">{searchParams.error}</div>
+            <div className="mb-4 rounded-md bg-red-900 bg-opacity-20 p-4 text-sm text-red-400">
+              {searchParams.error}
+            </div>
           )}
 
           <form action="/api/auth/signup" method="POST" className="space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="name" className="block text-sm font-medium text-foreground">
                 Full Name
               </label>
               <input id="name" name="name" type="text" required className="input-modern mt-1" />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block text-sm font-medium text-foreground">
                 Email
               </label>
               <input
@@ -50,7 +52,7 @@ export default function SignupPage({
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="password" className="block text-sm font-medium text-foreground">
                 Password
               </label>
               <input
@@ -61,7 +63,7 @@ export default function SignupPage({
                 className="input-modern mt-1"
                 placeholder="••••••••"
               />
-              <p className="mt-1 text-xs text-gray-500">Must be at least 8 characters</p>
+              <p className="mt-1 text-xs text-foreground opacity-60">Must be at least 8 characters</p>
             </div>
 
             <div className="flex items-center">
@@ -70,9 +72,9 @@ export default function SignupPage({
                 name="terms"
                 type="checkbox"
                 required
-                className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+                className="h-4 w-4 text-primary focus:ring-primary border-border rounded"
               />
-              <label htmlFor="terms" className="ml-2 block text-sm text-gray-600">
+              <label htmlFor="terms" className="ml-2 block text-sm text-foreground opacity-80">
                 I agree to the{" "}
                 <Link href="/dashboard" className="text-primary hover:underline">
                   Terms of Service
@@ -85,14 +87,14 @@ export default function SignupPage({
             </div>
 
             <div>
-              <Link href="/dashboard" className="button-primary w-full block text-center">
+              <button type="submit" className="button-primary w-full">
                 Sign up
-              </Link>
+              </button>
             </div>
           </form>
 
           <div className="mt-6 text-center text-sm">
-            <p>
+            <p className="text-foreground opacity-80">
               Already have an account?{" "}
               <Link href="/login" className="text-primary hover:underline">
                 Sign in
