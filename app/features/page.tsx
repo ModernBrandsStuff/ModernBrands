@@ -1,8 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { Check, ArrowRight } from "lucide-react"
 
-export default function HomePage() {
+export default function FeaturesPage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
@@ -15,7 +15,7 @@ export default function HomePage() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/features" className="nav-link">
+              <Link href="/features" className="nav-link-active">
                 Features
               </Link>
               <Link href="/about" className="nav-link">
@@ -51,129 +51,175 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto">
-          <div className="flex flex-col lg:flex-row items-center">
-            <div className="lg:w-1/2 lg:pr-12 mb-10 lg:mb-0">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Modern Employee <span className="gradient-text">Onboarding</span> Platform
-              </h1>
-              <p className="text-xl text-foreground opacity-80 mb-8 leading-relaxed">
-                Streamline your employee lifecycle management with our comprehensive platform. Automate workflows,
-                ensure compliance, and create exceptional employee experiences.
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Powerful Features for <span className="gradient-text">Modern</span> HR Teams
+            </h1>
+            <p className="text-xl text-foreground opacity-80 mb-8">
+              Discover how our platform streamlines employee lifecycle management from onboarding to offboarding.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Features */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Streamlined Employee Onboarding</h2>
+              <p className="text-lg text-foreground opacity-80 mb-6">
+                Create personalized onboarding experiences that help new hires feel welcome and productive from day one.
+                Automate paperwork, assign tasks, and track progress all in one place.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/signup" className="button-primary text-center">
-                  Get Started
-                </Link>
-                <Link href="/features" className="button-secondary text-center flex items-center justify-center gap-2">
-                  Learn More <ArrowRight size={18} />
-                </Link>
-              </div>
+              <ul className="space-y-3">
+                {[
+                  "Customizable onboarding workflows",
+                  "Automated document collection",
+                  "Task assignment and tracking",
+                  "Progress dashboards",
+                  "New hire welcome portals",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="lg:w-1/2 relative">
-              <div className="glass-card rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/general-data-dashboard.png"
-                  alt="Modern Onboard Dashboard"
-                  width={800}
-                  height={600}
-                  className="w-full h-auto rounded-lg"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-card rounded-lg shadow-lg p-4 animate-fade-in">
-                <div className="flex items-center gap-3">
-                  <div className="bg-primary bg-opacity-20 rounded-full p-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-primary"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground">New employee onboarded</p>
-                    <p className="text-sm text-foreground opacity-60">Just now</p>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -top-10 -right-10 w-20 h-20 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-                <Image
-                  src="/images/modern-icon.png"
-                  alt="Modern Icon"
-                  width={80}
-                  height={80}
-                  className="w-full h-auto"
-                />
-              </div>
+            <div className="rounded-xl overflow-hidden shadow-xl">
+              <Image
+                src="/employee-onboarding-dashboard.png"
+                alt="Onboarding Dashboard"
+                width={600}
+                height={400}
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-background">
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1 rounded-xl overflow-hidden shadow-xl">
+              <Image
+                src="/document-management-system.png"
+                alt="Document Management"
+                width={600}
+                height={400}
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <h2 className="text-3xl font-bold mb-6">Intelligent Document Management</h2>
+              <p className="text-lg text-foreground opacity-80 mb-6">
+                Securely store, manage, and track all employee documents in one centralized location. Ensure compliance
+                with automated expiration reminders and version control.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Centralized document repository",
+                  "Automated document generation",
+                  "E-signature integration",
+                  "Document expiration tracking",
+                  "Compliance monitoring",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Workflow Automation</h2>
+              <p className="text-lg text-foreground opacity-80 mb-6">
+                Automate repetitive tasks and workflows to save time and reduce administrative burden. Create custom
+                workflows for any HR process.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Visual workflow builder",
+                  "Conditional logic and branching",
+                  "Automated notifications",
+                  "Approval processes",
+                  "Integration with other systems",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <Check className="h-5 w-5 text-primary mr-2 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-xl">
+              <Image
+                src="/workflow-automation-diagram.png"
+                alt="Workflow Automation"
+                width={600}
+                height={400}
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Grid */}
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Everything you need to manage your workforce</h2>
-            <p className="text-xl text-foreground opacity-80 max-w-3xl mx-auto">
-              Our platform streamlines the entire employee lifecycle from onboarding to offboarding.
+            <h2 className="text-3xl font-bold mb-4">More Powerful Features</h2>
+            <p className="text-lg text-foreground opacity-80 max-w-2xl mx-auto">
+              Modern Onboard offers a comprehensive suite of tools to manage your entire employee lifecycle.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Employee Onboarding",
-                description:
-                  "Create personalized onboarding experiences that help new hires feel welcome and productive from day one.",
-                icon: "👥",
-                color: "bg-primary bg-opacity-10",
-                textColor: "text-primary",
-              },
-              {
-                title: "Document Management",
-                description: "Securely store, manage, and track all employee documents in one centralized location.",
-                icon: "📄",
-                color: "bg-secondary bg-opacity-10",
-                textColor: "text-secondary",
-              },
-              {
-                title: "Workflow Automation",
-                description: "Automate repetitive tasks and workflows to save time and reduce administrative burden.",
-                icon: "⚙️",
-                color: "bg-accent bg-opacity-20",
-                textColor: "text-foreground",
-              },
-              {
                 title: "Compliance Management",
                 description:
                   "Stay compliant with automated tracking of certifications, training, and regulatory requirements.",
                 icon: "🛡️",
-                color: "bg-primary bg-opacity-10",
-                textColor: "text-primary",
               },
               {
                 title: "Performance Tracking",
                 description: "Set goals, track progress, and provide feedback to help employees grow and succeed.",
                 icon: "📈",
-                color: "bg-secondary bg-opacity-10",
-                textColor: "text-secondary",
               },
               {
                 title: "Analytics & Reporting",
                 description: "Gain insights into your workforce with powerful analytics and customizable reports.",
                 icon: "📊",
-                color: "bg-accent bg-opacity-20",
-                textColor: "text-foreground",
+              },
+              {
+                title: "Employee Self-Service",
+                description: "Empower employees to update their information and access documents on their own.",
+                icon: "👤",
+              },
+              {
+                title: "Integration Ecosystem",
+                description: "Connect with your existing HR tools and systems for a seamless experience.",
+                icon: "🔄",
+              },
+              {
+                title: "Mobile Access",
+                description: "Access your HR platform anytime, anywhere with our mobile-friendly design.",
+                icon: "📱",
               },
             ].map((feature, index) => (
-              <div key={index} className="card-modern staggered-fade-in">
-                <div className={`${feature.color} p-3 rounded-full w-14 h-14 flex items-center justify-center mb-6`}>
+              <div key={index} className="card-modern">
+                <div className="bg-primary bg-opacity-10 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-6">
                   <span className="text-3xl">{feature.icon}</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
@@ -201,9 +247,9 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/contact"
-                className="bg-transparent border border-white px-8 py-3 rounded-md font-medium hover:bg-white hover:bg-opacity-10 transition-all"
+                className="bg-transparent border border-white px-8 py-3 rounded-md font-medium hover:bg-white hover:bg-opacity-10 transition-all flex items-center justify-center"
               >
-                Contact Sales
+                Schedule a Demo <ArrowRight size={18} className="ml-2" />
               </Link>
             </div>
           </div>
