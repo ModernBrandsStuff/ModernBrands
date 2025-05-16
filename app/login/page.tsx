@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function LoginPage({
   searchParams,
@@ -10,8 +11,11 @@ export default function LoginPage({
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
       <div className="w-full max-w-md">
-        <div className="rounded-lg bg-white p-8 shadow-md">
-          <h1 className="mb-6 text-center text-2xl font-bold">Sign in to Modern Onboard</h1>
+        <div className="card-modern">
+          <div className="text-center mb-6">
+            <Image src="/images/modern-logo.png" alt="Modern" width={180} height={60} className="h-12 w-auto mx-auto" />
+            <p className="mt-4 text-gray-600">Sign in to your account</p>
+          </div>
 
           {searchParams.message && (
             <div className="mb-4 rounded-md bg-green-50 p-4 text-sm text-green-700">{searchParams.message}</div>
@@ -31,20 +35,27 @@ export default function LoginPage({
                 name="email"
                 type="email"
                 required
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                className="input-modern mt-1"
+                placeholder="name@company.com"
               />
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                Password
-              </label>
+              <div className="flex items-center justify-between">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  Password
+                </label>
+                <Link href="/forgot-password" className="text-sm text-primary hover:underline">
+                  Forgot password?
+                </Link>
+              </div>
               <input
                 id="password"
                 name="password"
                 type="password"
                 required
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                className="input-modern mt-1"
+                placeholder="••••••••"
               />
             </div>
 
@@ -52,10 +63,7 @@ export default function LoginPage({
             <input type="hidden" name="redirectTo" value={redirectTo} />
 
             <div>
-              <button
-                type="submit"
-                className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              >
+              <button type="submit" className="button-primary w-full">
                 Sign in
               </button>
             </div>
@@ -64,11 +72,15 @@ export default function LoginPage({
           <div className="mt-6 text-center text-sm">
             <p>
               Don't have an account?{" "}
-              <Link href="/signup" className="text-blue-600 hover:text-blue-800">
+              <Link href="/signup" className="text-primary hover:underline">
                 Sign up
               </Link>
             </p>
           </div>
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <Image src="/images/modern-icon.png" alt="Modern Icon" width={60} height={60} className="h-12 w-auto" />
         </div>
       </div>
     </div>

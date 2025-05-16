@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function SignupPage({
   searchParams,
@@ -8,8 +9,11 @@ export default function SignupPage({
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
       <div className="w-full max-w-md">
-        <div className="rounded-lg bg-white p-8 shadow-md">
-          <h1 className="mb-6 text-center text-2xl font-bold">Create an account</h1>
+        <div className="card-modern">
+          <div className="text-center mb-6">
+            <Image src="/images/modern-logo.png" alt="Modern" width={180} height={60} className="h-12 w-auto mx-auto" />
+            <p className="mt-4 text-gray-600">Create your account</p>
+          </div>
 
           {searchParams.error && (
             <div className="mb-4 rounded-md bg-red-50 p-4 text-sm text-red-700">{searchParams.error}</div>
@@ -20,13 +24,7 @@ export default function SignupPage({
               <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                 Full Name
               </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
-              />
+              <input id="name" name="name" type="text" required className="input-modern mt-1" />
             </div>
 
             <div>
@@ -38,7 +36,8 @@ export default function SignupPage({
                 name="email"
                 type="email"
                 required
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                className="input-modern mt-1"
+                placeholder="name@company.com"
               />
             </div>
 
@@ -51,15 +50,34 @@ export default function SignupPage({
                 name="password"
                 type="password"
                 required
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                className="input-modern mt-1"
+                placeholder="••••••••"
               />
+              <p className="mt-1 text-xs text-gray-500">Must be at least 8 characters</p>
+            </div>
+
+            <div className="flex items-center">
+              <input
+                id="terms"
+                name="terms"
+                type="checkbox"
+                required
+                className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+              />
+              <label htmlFor="terms" className="ml-2 block text-sm text-gray-600">
+                I agree to the{" "}
+                <Link href="/terms" className="text-primary hover:underline">
+                  Terms of Service
+                </Link>{" "}
+                and{" "}
+                <Link href="/privacy" className="text-primary hover:underline">
+                  Privacy Policy
+                </Link>
+              </label>
             </div>
 
             <div>
-              <button
-                type="submit"
-                className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              >
+              <button type="submit" className="button-primary w-full">
                 Sign up
               </button>
             </div>
@@ -68,11 +86,15 @@ export default function SignupPage({
           <div className="mt-6 text-center text-sm">
             <p>
               Already have an account?{" "}
-              <Link href="/login" className="text-blue-600 hover:text-blue-800">
+              <Link href="/login" className="text-primary hover:underline">
                 Sign in
               </Link>
             </p>
           </div>
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <Image src="/images/modern-icon.png" alt="Modern Icon" width={60} height={60} className="h-12 w-auto" />
         </div>
       </div>
     </div>
