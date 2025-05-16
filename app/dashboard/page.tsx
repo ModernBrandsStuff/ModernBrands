@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import {
   Users,
   FileText,
@@ -11,6 +10,8 @@ import {
   Bell,
   BarChart3,
   Briefcase,
+  ChevronRight,
+  Activity,
 } from "lucide-react"
 
 export default function DashboardPage() {
@@ -25,11 +26,11 @@ export default function DashboardPage() {
           </p>
         </div>
         <div className="mt-4 md:mt-0 flex space-x-3">
-          <Link href="/dashboard" className="button-primary py-2 px-4 text-sm">
+          <Link href="/dashboard/employees" className="button-primary py-2 px-4 text-sm">
             Add Employee
           </Link>
-          <Link href="/dashboard" className="button-secondary py-2 px-4 text-sm">
-            View Reports
+          <Link href="/dashboard/documents" className="button-secondary py-2 px-4 text-sm">
+            View Documents
           </Link>
         </div>
       </div>
@@ -113,15 +114,18 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Main content */}
+      {/* Main content - Replacing the chart with a cleaner design */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Recent activity */}
         <div className="lg:col-span-2">
           <div className="card-modern">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-bold text-foreground">Recent Activity</h2>
-              <Link href="/dashboard" className="text-sm text-primary hover:text-primary-dark">
-                View all
+              <Link
+                href="/dashboard/activity"
+                className="text-sm text-primary hover:text-primary-dark flex items-center"
+              >
+                View all <ChevronRight size={16} className="ml-1" />
               </Link>
             </div>
             <div className="space-y-6">
@@ -177,6 +181,42 @@ export default function DashboardPage() {
               </div>
             </div>
           </div>
+
+          {/* Tasks section - Clean, modern replacement for the chart */}
+          <div className="card-modern mt-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-lg font-bold text-foreground">Tasks</h2>
+              <Link href="/dashboard/tasks" className="text-sm text-primary hover:text-primary-dark flex items-center">
+                View all <ChevronRight size={16} className="ml-1" />
+              </Link>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                { title: "Review new employee applications", priority: "High", dueDate: "Today" },
+                { title: "Update onboarding documentation", priority: "Medium", dueDate: "Tomorrow" },
+                { title: "Schedule quarterly review meetings", priority: "Medium", dueDate: "Jun 18" },
+                { title: "Renew compliance certificates", priority: "High", dueDate: "Jun 20" },
+              ].map((task, index) => (
+                <div key={index} className="flex items-center justify-between p-3 border border-border rounded-lg">
+                  <div className="flex items-center">
+                    <div
+                      className={`h-3 w-3 rounded-full mr-3 ${
+                        task.priority === "High" ? "bg-red-400" : "bg-yellow-400"
+                      }`}
+                    ></div>
+                    <span className="text-foreground">{task.title}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-sm text-foreground opacity-60 mr-4">{task.dueDate}</span>
+                    <button className="text-primary hover:text-primary-dark">
+                      <Activity size={16} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Upcoming onboarding */}
@@ -184,8 +224,11 @@ export default function DashboardPage() {
           <div className="card-modern">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-bold text-foreground">Upcoming Onboarding</h2>
-              <Link href="/dashboard" className="text-sm text-primary hover:text-primary-dark">
-                View all
+              <Link
+                href="/dashboard/onboarding"
+                className="text-sm text-primary hover:text-primary-dark flex items-center"
+              >
+                View all <ChevronRight size={16} className="ml-1" />
               </Link>
             </div>
             <div className="space-y-4">
@@ -228,7 +271,7 @@ export default function DashboardPage() {
             </div>
             <div className="mt-6">
               <Link
-                href="/dashboard"
+                href="/dashboard/onboarding/schedule"
                 className="block text-center py-2 border border-border rounded-md text-sm text-foreground hover:bg-card hover:bg-opacity-70"
               >
                 Schedule New Onboarding
@@ -240,36 +283,35 @@ export default function DashboardPage() {
           <div className="card-modern mt-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold text-foreground">Quick Links</h2>
-              <Image src="/images/modern-icon.png" alt="Modern Icon" width={30} height={30} className="h-6 w-auto" />
             </div>
             <div className="grid grid-cols-2 gap-3">
               <Link
-                href="/dashboard"
+                href="/dashboard/documents"
                 className="flex flex-col items-center p-3 bg-card border border-border rounded-lg hover:bg-primary hover:bg-opacity-5"
               >
                 <FileText className="h-6 w-6 text-primary mb-2" />
                 <span className="text-xs text-foreground">Documents</span>
               </Link>
               <Link
-                href="/dashboard"
+                href="/dashboard/reports"
                 className="flex flex-col items-center p-3 bg-card border border-border rounded-lg hover:bg-primary hover:bg-opacity-5"
               >
                 <BarChart3 className="h-6 w-6 text-secondary mb-2" />
                 <span className="text-xs text-foreground">Reports</span>
               </Link>
               <Link
-                href="/dashboard"
+                href="/dashboard/employees"
                 className="flex flex-col items-center p-3 bg-card border border-border rounded-lg hover:bg-primary hover:bg-opacity-5"
               >
                 <Users className="h-6 w-6 text-primary mb-2" />
                 <span className="text-xs text-foreground">Employees</span>
               </Link>
               <Link
-                href="/dashboard"
+                href="/dashboard/settings"
                 className="flex flex-col items-center p-3 bg-card border border-border rounded-lg hover:bg-primary hover:bg-opacity-5"
               >
                 <Briefcase className="h-6 w-6 text-secondary mb-2" />
-                <span className="text-xs text-foreground">Company</span>
+                <span className="text-xs text-foreground">Settings</span>
               </Link>
             </div>
           </div>

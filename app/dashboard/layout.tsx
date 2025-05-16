@@ -76,7 +76,7 @@ export default function DashboardLayout({
                 Employees
               </Link>
               <Link
-                href="/dashboard"
+                href="/dashboard/onboarding"
                 className="flex items-center px-3 py-2 text-foreground rounded-md hover:bg-primary hover:bg-opacity-10 group"
               >
                 <ClipboardList className="h-5 w-5 mr-3 text-foreground opacity-60 group-hover:text-primary group-hover:opacity-100" />
@@ -90,29 +90,29 @@ export default function DashboardLayout({
                 Documents
               </Link>
               <Link
-                href="/dashboard"
+                href="/dashboard/tasks"
                 className="flex items-center px-3 py-2 text-foreground rounded-md hover:bg-primary hover:bg-opacity-10 group"
               >
                 <MessageSquare className="h-5 w-5 mr-3 text-foreground opacity-60 group-hover:text-primary group-hover:opacity-100" />
-                Chat
+                Tasks
               </Link>
             </div>
 
             <div className="mt-8 space-y-1">
               <p className="px-3 text-xs font-semibold text-foreground opacity-60 uppercase tracking-wider">Admin</p>
               <Link
-                href="/dashboard"
-                className="flex items-center px-3 py-2 text-foreground rounded-md hover:bg-primary hover:bg-opacity-10 group"
-              >
-                <Shield className="h-5 w-5 mr-3 text-foreground opacity-60 group-hover:text-primary group-hover:opacity-100" />
-                Compliance
-              </Link>
-              <Link
-                href="/dashboard"
+                href="/dashboard/reports"
                 className="flex items-center px-3 py-2 text-foreground rounded-md hover:bg-primary hover:bg-opacity-10 group"
               >
                 <BarChart className="h-5 w-5 mr-3 text-foreground opacity-60 group-hover:text-primary group-hover:opacity-100" />
                 Reports
+              </Link>
+              <Link
+                href="/dashboard/admin/email-access"
+                className="flex items-center px-3 py-2 text-foreground rounded-md hover:bg-primary hover:bg-opacity-10 group"
+              >
+                <Shield className="h-5 w-5 mr-3 text-foreground opacity-60 group-hover:text-primary group-hover:opacity-100" />
+                Access Control
               </Link>
               <Link
                 href="/dashboard/settings"
@@ -174,10 +174,10 @@ export default function DashboardLayout({
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <button className="text-foreground opacity-80 hover:text-primary relative">
+              <Link href="/dashboard/notifications" className="text-foreground opacity-80 hover:text-primary relative">
                 <Bell size={20} />
                 <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-secondary transform translate-x-1/2 -translate-y-1/2"></span>
-              </button>
+              </Link>
               <div className="h-8 w-px bg-border hidden md:block"></div>
               <div className="hidden md:flex items-center">
                 <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-medium">
@@ -191,7 +191,7 @@ export default function DashboardLayout({
 
         {/* Page content */}
         <main className="p-6">
-          <Suspense>{children}</Suspense>
+          <Suspense fallback={<div className="text-foreground">Loading...</div>}>{children}</Suspense>
         </main>
       </div>
     </div>
