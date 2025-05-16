@@ -23,10 +23,10 @@ export default function DashboardPage() {
           <p className="mt-1 text-sm text-gray-500">Welcome back! Here's an overview of your organization.</p>
         </div>
         <div className="mt-4 md:mt-0 flex space-x-3">
-          <Link href="/dashboard/employees/create" className="button-primary py-2 px-4 text-sm">
+          <Link href="/dashboard" className="button-primary py-2 px-4 text-sm">
             Add Employee
           </Link>
-          <Link href="/dashboard/reports" className="button-secondary py-2 px-4 text-sm">
+          <Link href="/dashboard" className="button-secondary py-2 px-4 text-sm">
             View Reports
           </Link>
         </div>
@@ -118,7 +118,7 @@ export default function DashboardPage() {
           <div className="card-modern">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-bold text-gray-900">Recent Activity</h2>
-              <Link href="/dashboard/activity" className="text-sm text-primary hover:text-primary-dark">
+              <Link href="/dashboard" className="text-sm text-primary hover:text-primary-dark">
                 View all
               </Link>
             </div>
@@ -180,7 +180,7 @@ export default function DashboardPage() {
           <div className="card-modern">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-bold text-gray-900">Upcoming Onboarding</h2>
-              <Link href="/dashboard/onboarding" className="text-sm text-primary hover:text-primary-dark">
+              <Link href="/dashboard" className="text-sm text-primary hover:text-primary-dark">
                 View all
               </Link>
             </div>
@@ -224,7 +224,7 @@ export default function DashboardPage() {
             </div>
             <div className="mt-6">
               <Link
-                href="/dashboard/onboarding/create"
+                href="/dashboard"
                 className="block text-center py-2 border border-gray-300 rounded-md text-sm text-gray-700 hover:bg-gray-50"
               >
                 Schedule New Onboarding
@@ -240,28 +240,28 @@ export default function DashboardPage() {
             </div>
             <div className="grid grid-cols-2 gap-3">
               <Link
-                href="/dashboard/documents"
+                href="/dashboard"
                 className="flex flex-col items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100"
               >
                 <FileText className="h-6 w-6 text-primary mb-2" />
                 <span className="text-xs text-gray-700">Documents</span>
               </Link>
               <Link
-                href="/dashboard/reports"
+                href="/dashboard"
                 className="flex flex-col items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100"
               >
                 <BarChart3 className="h-6 w-6 text-secondary mb-2" />
                 <span className="text-xs text-gray-700">Reports</span>
               </Link>
               <Link
-                href="/dashboard/employees"
+                href="/dashboard"
                 className="flex flex-col items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100"
               >
                 <Users className="h-6 w-6 text-primary mb-2" />
                 <span className="text-xs text-gray-700">Employees</span>
               </Link>
               <Link
-                href="/dashboard/settings"
+                href="/dashboard"
                 className="flex flex-col items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100"
               >
                 <Briefcase className="h-6 w-6 text-secondary mb-2" />

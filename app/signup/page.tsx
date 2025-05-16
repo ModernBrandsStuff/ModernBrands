@@ -11,7 +11,15 @@ export default function SignupPage({
       <div className="w-full max-w-md">
         <div className="card-modern">
           <div className="text-center mb-6">
-            <Image src="/images/modern-logo.png" alt="Modern" width={180} height={60} className="h-12 w-auto mx-auto" />
+            <Link href="/">
+              <Image
+                src="/images/modern-logo.png"
+                alt="Modern"
+                width={180}
+                height={60}
+                className="h-12 w-auto mx-auto"
+              />
+            </Link>
             <p className="mt-4 text-gray-600">Create your account</p>
           </div>
 
@@ -66,20 +74,20 @@ export default function SignupPage({
               />
               <label htmlFor="terms" className="ml-2 block text-sm text-gray-600">
                 I agree to the{" "}
-                <Link href="/terms" className="text-primary hover:underline">
+                <Link href="/dashboard" className="text-primary hover:underline">
                   Terms of Service
                 </Link>{" "}
                 and{" "}
-                <Link href="/privacy" className="text-primary hover:underline">
+                <Link href="/dashboard" className="text-primary hover:underline">
                   Privacy Policy
                 </Link>
               </label>
             </div>
 
             <div>
-              <button type="submit" className="button-primary w-full">
+              <Link href="/dashboard" className="button-primary w-full block text-center">
                 Sign up
-              </button>
+              </Link>
             </div>
           </form>
 

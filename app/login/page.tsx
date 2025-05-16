@@ -13,7 +13,15 @@ export default function LoginPage({
       <div className="w-full max-w-md">
         <div className="card-modern">
           <div className="text-center mb-6">
-            <Image src="/images/modern-logo.png" alt="Modern" width={180} height={60} className="h-12 w-auto mx-auto" />
+            <Link href="/">
+              <Image
+                src="/images/modern-logo.png"
+                alt="Modern"
+                width={180}
+                height={60}
+                className="h-12 w-auto mx-auto"
+              />
+            </Link>
             <p className="mt-4 text-gray-600">Sign in to your account</p>
           </div>
 
@@ -45,7 +53,7 @@ export default function LoginPage({
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                   Password
                 </label>
-                <Link href="/forgot-password" className="text-sm text-primary hover:underline">
+                <Link href="/dashboard" className="text-sm text-primary hover:underline">
                   Forgot password?
                 </Link>
               </div>
@@ -63,9 +71,9 @@ export default function LoginPage({
             <input type="hidden" name="redirectTo" value={redirectTo} />
 
             <div>
-              <button type="submit" className="button-primary w-full">
+              <Link href="/dashboard" className="button-primary w-full block text-center">
                 Sign in
-              </button>
+              </Link>
             </div>
           </form>
 

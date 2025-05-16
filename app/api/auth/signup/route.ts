@@ -18,8 +18,8 @@ export async function POST(request: Request) {
     const cookieStore = cookies()
     const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
 
-    // Get the site URL from environment variable or use modernonboard.com as fallback
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://modernonboard.com"
+    // Always use modernonboard.com as the site URL for email redirects
+    const siteUrl = "https://modernonboard.com"
 
     // Sign up the user with the correct site URL
     const { data, error } = await supabase.auth.signUp({

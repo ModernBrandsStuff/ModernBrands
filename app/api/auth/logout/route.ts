@@ -8,8 +8,8 @@ export async function POST(request: Request) {
     const cookieStore = cookies()
     const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
 
-    // Get the site URL from environment variable or use modernonboard.com as fallback
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://modernonboard.com"
+    // Always use modernonboard.com as the site URL
+    const siteUrl = "https://modernonboard.com"
 
     // Sign out the user
     await supabase.auth.signOut()

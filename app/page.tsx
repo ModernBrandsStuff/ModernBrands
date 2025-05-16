@@ -15,13 +15,13 @@ export default function HomePage() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/features" className="nav-link">
+              <Link href="/dashboard" className="nav-link">
+                Dashboard
+              </Link>
+              <Link href="/dashboard" className="nav-link">
                 Features
               </Link>
-              <Link href="/pricing" className="nav-link">
-                Pricing
-              </Link>
-              <Link href="/about" className="nav-link">
+              <Link href="/dashboard" className="nav-link">
                 About
               </Link>
               <Link href="/login" className="button-secondary py-2 px-4">
@@ -64,7 +64,7 @@ export default function HomePage() {
                 <Link href="/signup" className="button-primary text-center">
                   Get Started Free
                 </Link>
-                <Link href="/demo" className="button-secondary text-center flex items-center justify-center gap-2">
+                <Link href="/dashboard" className="button-secondary text-center flex items-center justify-center gap-2">
                   Request Demo <ArrowRight size={18} />
                 </Link>
               </div>
@@ -199,7 +199,7 @@ export default function HomePage() {
                 Get Started Free
               </Link>
               <Link
-                href="/contact"
+                href="/dashboard"
                 className="bg-transparent border border-white px-8 py-3 rounded-md font-medium hover:bg-white hover:bg-opacity-10 transition-all"
               >
                 Contact Sales
@@ -226,17 +226,17 @@ export default function HomePage() {
               <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Product</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <Link href="/features" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
                     Features
                   </Link>
                 </li>
                 <li>
-                  <Link href="/pricing" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
                     Pricing
                   </Link>
                 </li>
                 <li>
-                  <Link href="/integrations" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
                     Integrations
                   </Link>
                 </li>
@@ -247,17 +247,17 @@ export default function HomePage() {
               <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Company</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <Link href="/about" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link href="/careers" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
                     Careers
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
                     Contact
                   </Link>
                 </li>
@@ -268,12 +268,12 @@ export default function HomePage() {
               <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Legal</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <Link href="/privacy" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
                     Privacy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="text-gray-600 hover:text-primary">
+                  <Link href="/dashboard" className="text-gray-600 hover:text-primary">
                     Terms
                   </Link>
                 </li>

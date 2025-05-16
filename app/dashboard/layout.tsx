@@ -67,28 +67,28 @@ export default function DashboardLayout({
                 Dashboard
               </Link>
               <Link
-                href="/dashboard/employees"
+                href="/dashboard"
                 className="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100 group"
               >
                 <Users className="h-5 w-5 mr-3 text-gray-500 group-hover:text-primary" />
                 Employees
               </Link>
               <Link
-                href="/dashboard/onboarding"
+                href="/dashboard"
                 className="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100 group"
               >
                 <ClipboardList className="h-5 w-5 mr-3 text-gray-500 group-hover:text-primary" />
                 Onboarding
               </Link>
               <Link
-                href="/dashboard/documents"
+                href="/dashboard"
                 className="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100 group"
               >
                 <FileText className="h-5 w-5 mr-3 text-gray-500 group-hover:text-primary" />
                 Documents
               </Link>
               <Link
-                href="/dashboard/chat"
+                href="/dashboard"
                 className="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100 group"
               >
                 <MessageSquare className="h-5 w-5 mr-3 text-gray-500 group-hover:text-primary" />
@@ -99,21 +99,21 @@ export default function DashboardLayout({
             <div className="mt-8 space-y-1">
               <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Admin</p>
               <Link
-                href="/dashboard/compliance"
+                href="/dashboard"
                 className="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100 group"
               >
                 <Shield className="h-5 w-5 mr-3 text-gray-500 group-hover:text-primary" />
                 Compliance
               </Link>
               <Link
-                href="/dashboard/reports"
+                href="/dashboard"
                 className="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100 group"
               >
                 <BarChart className="h-5 w-5 mr-3 text-gray-500 group-hover:text-primary" />
                 Reports
               </Link>
               <Link
-                href="/dashboard/settings"
+                href="/dashboard"
                 className="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100 group"
               >
                 <Settings className="h-5 w-5 mr-3 text-gray-500 group-hover:text-primary" />
@@ -134,11 +134,11 @@ export default function DashboardLayout({
                 <p className="text-sm font-medium text-gray-700">John Doe</p>
                 <p className="text-xs text-gray-500">Administrator</p>
               </div>
-              <form action="/api/auth/logout" method="POST" className="ml-auto">
-                <button type="submit" className="text-gray-500 hover:text-red-600" title="Sign out">
+              <Link href="/" className="ml-auto">
+                <button className="text-gray-500 hover:text-red-600" title="Sign out">
                   <LogOut size={18} />
                 </button>
-              </form>
+              </Link>
             </div>
           </div>
         </div>

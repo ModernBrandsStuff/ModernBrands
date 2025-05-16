@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs"
+import { SITE_URL } from "./lib/config"
 
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next()
@@ -10,8 +11,8 @@ export async function middleware(request: NextRequest) {
     data: { session },
   } = await supabase.auth.getSession()
 
-  // Get the site URL from request origin or use modernonboard.com as fallback
-  const siteUrl = request.nextUrl.origin || "https://modernonboard.com"
+  // Always use modernonboard.com as the site URL
+  const siteUrl = SITE_URL
 
   // Handle welcome page redirect
   if (request.nextUrl.pathname === "/welcome") {
